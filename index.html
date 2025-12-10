@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wedding Invitation :: Alivia & Apratim</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f3ef;
+      --card:#ffffff;
+      --muted:#7a6f63;
+      --accent:#c66a7b;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    a {
+      cursor: pointer;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #fbf8f6 0%, #f0ebe7 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px; /* reduced for small screens */
+      color:var(--muted);
+    }
+
+    .invite-wrap{
+      width:100%;
+      max-width:780px;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:20px;
+      align-items:start;
+    }
+
+    /* Left artwork / message */
+    .panel{
+      background:linear-gradient(180deg, rgba(198,106,123,0.06), rgba(198,106,123,0.02));
+      border-radius:16px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      min-height:240px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .title{
+      font-family: "Playfair Display", serif;
+      font-size:38px;
+      color:#3f2e2b;
+      margin:0 0 6px 0;
+      letter-spacing:0.6px;
+    }
+    .subtitle{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:var(--accent);
+      font-weight:600;
+      margin:0 0 12px 0;
+    }
+    .message{
+      font-size:15px;
+      line-height:1.6;
+      color:var(--muted);
+      margin:0 0 18px 0;
+      max-width:46ch;
+    }
+
+    /* Right card with details */
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:flex-start;
+      min-width:0;
+    }
+
+    .names{
+      font-family:"Playfair Display", serif;
+      font-size:26px;
+      margin:0;
+      color:#2d1f20;
+      word-break:break-word;
+    }
+    .details{
+      font-size:14px;
+      color:var(--muted);
+      margin:0;
+    }
+
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:6px;
+      flex-direction: row;
+    }
+    .meta .pill{
+      background:#fbf6f7;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:13px;
+      color:#6e585c;
+      box-shadow:inset 0 -1px 0 rgba(0,0,0,0.02);
+      white-space:nowrap;
+    }
+
+    .rsvp{
+      margin-top:12px;
+      display:flex;
+      gap:8px;
+      width:100%;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      text-align:center;
+      cursor:pointer;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),#b95b6d);
+      color:#fff;
+      flex:1;
+    }
+    .btn-ghost{
+      border:1px solid #efe5e6;
+      background:transparent;
+      color:var(--muted);
+      flex:1;
+    }
+
+    .footer{
+      font-size:12px;
+      color:#a2978f;
+      margin-top:6px;
+    }
+
+    /* decorative SVG */
+    .floral{
+      width:84px;
+      height:84px;
+      opacity:0.95;
+      flex-shrink:0;
+    }
+
+    /* responsive improvements */
+    @media (max-width:900px){
+      .invite-wrap{max-width:720px; gap:16px}
+      .title{font-size:34px}
+      .names{font-size:24px}
+    }
+
+    @media (max-width:820px){
+      /* stack columns */
+      .invite-wrap{
+        grid-template-columns:1fr;
+        max-width:540px;
+      }
+
+      /* show details card first on small screens */
+      .card{order:2}
+      .panel{order:1}
+
+      .panel,.card{
+        padding:18px;
+        border-radius:12px;
+      }
+
+      .title{font-size:28px}
+      .subtitle{font-size:11px}
+      .message{font-size:15px; margin-bottom:10px}
+
+      /* make pills wrap and shrink */
+      .meta{gap:8px}
+      .meta .pill{padding:6px 10px; font-size:12px}
+
+      /* make RSVP buttons stack */
+      .rsvp{
+        flex-direction:column;
+        gap:10px;
+      }
+      .btn{width:100%; padding:12px 14px; font-size:15px}
+
+      /* hide decorative SVG to save space */
+      .floral{display:none}
+    }
+
+    @media (max-width:420px){
+      body{padding:12px}
+      .invite-wrap{max-width:380px}
+      .panel{min-height:auto}
+      .title{font-size:22px}
+      .names{font-size:20px}
+      .meta .pill{font-size:11px; padding:6px 8px}
+    }
+
+    /* print-friendly */
+    @media print{
+      body{background:#fff}
+      .btn{display:none}
+      .invite-wrap{box-shadow:none}
+      .panel,.card{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="invite-wrap" role="main">
+    <section class="panel" aria-label="Invitation message">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <svg class="floral" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#f8d9df"/><stop offset="1" stop-color="#ffdfe6"/></linearGradient></defs>
+          <circle cx="32" cy="22" r="14" fill="url(#g)"/>
+          <path d="M10 50c8-18 46-18 54 0-18 10-36 10-54 0z" fill="#f6e7e9"/>
+          <g fill="#c66a7b" opacity="0.12"><ellipse cx="18" cy="18" rx="6" ry="3"/><ellipse cx="46" cy="18" rx="6" ry="3"/></g>
+        </svg>
+
+        <div>
+          <p class="subtitle">You are invited</p>
+          <h1 class="title">Join our celebration</h1>
+        </div>
+      </div>
+
+      <p class="message">
+        With joy in our hearts we invite you to celebrate the marriage of
+        <strong>Alivia</strong> &amp; <strong>Apratim</strong>. Please join us for a day of love, laughter, and dancing.
+      </p>
+    </section>
+
+    <aside class="card" aria-label="Event details">
+      <h2 class="names">Alivia &amp; Apratim</h2>
+
+      <p class="details">Monday, 15 December 2025, Evening</p>
+
+      <div class="meta" aria-hidden="false">
+        <div class="pill">Broti Sangha Club</div>
+        <div class="pill">Hariharpur</div>
+        <div class="pill">Hridaypur</div>
+      </div>
+
+      <div class="rsvp" role="group" aria-label="RSVP actions">
+        <a class="btn btn-primary" href="https://maps.app.goo.gl/zoV1q2mtR2rVrUhn8" target="_blank" rel="noopener">📍 Location</a>
+      </div>
+
+      <p class="footer">If you need directions or accommodation help, reply to the email above.</p>
+    </aside>
+  </main>
+</body>
+</html>
